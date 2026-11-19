@@ -64,10 +64,10 @@ def analisar():
         }), 400
 
     url = (
-        f"{VISION_ENDPOINT}/computervision/imageanalysis:analyze"
+        f"{VISION_ENDPOINT.rstrip('/')}/computervision/imageanalysis:analyze"
         "?api-version=2024-02-01"
         "&features=caption,tags,objects"
-        "&language=pt"
+        "&language=en"
     )
 
     headers = {
