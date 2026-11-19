@@ -143,8 +143,7 @@ az webapp config appsettings set \
     --settings \
         VISION_ENDPOINT="$VISION_ENDPOINT" \
         VISION_KEY="$VISION_KEY" \
-        SCM_DO_BUILD_DURING_DEPLOYMENT=true \
-        WEBSITE_HTTPLOGGING_ENABLED=true \
+        SCM_DO_BUILD_DURING_DEPLOYMENT=true \     
     --output none \
     --only-show-errors
 
