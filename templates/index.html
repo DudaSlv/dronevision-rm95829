@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DroneVision - Análise inteligente de imagens aéreas com Azure AI Vision">
+    <title>DroneVision | Inteligência Aérea</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <a href="/" class="brand">
+            <span class="brand-icon">D</span>
+            <span>Drone<span class="brand-highlight">Vision</span></span>
+        </a>
+        <span class="status"><span class="status-dot"></span> Plataforma de análise inteligente</span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <span class="eyebrow">INTELIGÊNCIA ARTIFICIAL APLICADA A DRONES</span>
+            <h1>Veja além da <span>imagem.</span></h1>
+            <p>Transforme fotografias aéreas em informações inteligentes. Envie uma imagem capturada por drone e deixe a inteligência artificial identificar o que existe nela.</p>
+        </section>
+
+        <section class="workspace">
+            <div class="section-heading">
+                <div>
+                    <span class="step-label">01 — ENVIO</span>
+                    <h2>Imagem para análise</h2>
+                    <p>Selecione uma fotografia aérea para começar.</p>
+                </div>
+                <span class="file-limit">Máximo: 10 MB</span>
+            </div>
+
+            <form id="uploadForm">
+                <label for="imagem" class="upload-area" id="uploadArea">
+                    <input type="file" id="imagem" name="imagem"
+                           accept="image/jpeg,image/png,image/gif,image/bmp,image/tiff"
+                           hidden>
+                    <div class="upload-content" id="uploadContent">
+                        <div class="upload-icon">↑</div>
+                        <strong>Arraste sua imagem até aqui</strong>
+                        <span>ou clique para selecionar um arquivo</span>
+                        <small>JPG, PNG, GIF, BMP ou TIFF</small>
+                    </div>
+                    <img id="preview" class="preview hidden" alt="Pré-visualização da imagem selecionada">
+                </label>
+
+                <div class="selected-file hidden" id="selectedFile"></div>
+
+                <button type="submit" id="analyzeButton" disabled>
+                    <span>✦</span> Analisar imagem com IA
+                </button>
+            </form>
+
+            <div id="errorMessage" class="message error hidden" role="alert"></div>
+            <div id="loadingMessage" class="message loading hidden">
+                <span class="loader"></span>
+                Analisando imagem com Azure AI Vision...
+            </div>
+        </section>
+
+        <section id="results" class="results hidden">
+            <div class="section-heading">
+                <div>
+                    <span class="step-label">02 — RESULTADO</span>
+                    <h2>Inteligência extraída</h2>
+                    <p>Confira as informações identificadas pela inteligência artificial.</p>
+                </div>
+                <span class="result-badge">Análise concluída</span>
+            </div>
+
+            <div class="result-card">
+                <h3>Descrição da imagem</h3>
+                <p id="description"></p>
+            </div>
+
+            <div class="result-grid">
+                <div class="result-card">
+                    <h3>Etiquetas identificadas</h3>
+                    <div id="tags" class="tag-list"></div>
+                </div>
+
+                <div class="result-card">
+                    <h3>Objetos identificados</h3>
+                    <div id="objects" class="tag-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span>DroneVision © 2026</span>
+            <span>Powered by Azure AI Vision</span>
+        </footer>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
